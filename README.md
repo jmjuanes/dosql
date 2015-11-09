@@ -42,6 +42,7 @@ The `obj` object must contain the next keys:
 - `result` will be `null` if an error occurred running the query.
 - `result` will be an array if no error occurred.
 
+**NOTE:** On **v0.2.0**, `obj` can be an string with your query.
 
 #### Examples
 

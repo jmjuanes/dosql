@@ -71,6 +71,16 @@ exports.Do = function(obj, callback)
     return ReturnError();
   }
 
+  //Check if obj is a string
+  if(typeof obj === 'string')
+  {
+    //Make the query
+    mydb.Query(obj, function(err, results){ CheckCallback(err, 'query', results, callback); });
+
+    //Exit
+    return false;
+  }
+
   //obj musth have the do argument
   if(typeof obj.do === 'undefined')
   {
@@ -80,9 +90,6 @@ exports.Do = function(obj, callback)
     //Exit
     return ReturnError();
   }
-
-  //Convert do to undercase
-  obj.do = obj.do.toLowerCase();
 
   //Check the in and named option
   if(typeof obj.in === 'undefined' && typeof obj.named === 'undefined')
@@ -100,6 +107,9 @@ exports.Do = function(obj, callback)
     //Get the table
     var table = (typeof obj.named === 'undefined')? obj.in : obj.named;
   }
+
+  //Convert do to undercase
+  obj.do = obj.do.toLowerCase();
 
   //Check the do option
   if(obj.do === 'select')
