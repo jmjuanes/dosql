@@ -1,6 +1,6 @@
 {
   "name": "dosql",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Easy and intuitive way to do queries to a MySQL database using only JSON",
   "main": "index.js",
   "repository": {"type": "git", "url": "git://github.com/jmjuanes/dosql.git"},
@@ -8,5 +8,5 @@
   "files": ["LICENSE", "README.md", "index.js"],
   "author": "Josemi Juanes <josemijuanes@gmail.com>",
   "license": "MIT",
-  "dependencies": {"minsql": "0.4.0"}
+  "dependencies": {"minsql": "0.4.1"}
 }

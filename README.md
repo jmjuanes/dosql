@@ -42,11 +42,9 @@ The `obj` object must contain the next keys:
 - `result` will be `null` if an error occurred running the query.
 - `result` will be an array if no error occurred.
 
-**NOTE:** On **v0.2.0**, `obj` can be a string with your query.
-
 #### Examples
 
-For **select** data, you can optionally add a `where` key, containing an object with the keys that the rows must satisfy.
+For **select** data, you can optionally add a `where` key, containing an object with the keys that the rows must satisfy. On version `0.2.1`, the `where` argument can be a string for a complex query.
 
 ```javascript
 //Example 1 - Select all rows from table

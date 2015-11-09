@@ -71,16 +71,6 @@ exports.Do = function(obj, callback)
     return ReturnError();
   }
 
-  //Check if obj is a string
-  if(typeof obj === 'string')
-  {
-    //Make the query
-    mydb.Query(obj, function(err, results){ CheckCallback(err, 'query', results, callback); });
-
-    //Exit
-    return false;
-  }
-
   //obj musth have the do argument
   if(typeof obj.do === 'undefined')
   {
