@@ -1,6 +1,6 @@
 {
   "name": "dosql",
-  "version": "0.2.1",
+  "version": "0.2.2",
   "description": "Easy and intuitive way to do queries to a MySQL database using only JSON",
   "main": "index.js",
   "repository": {"type": "git", "url": "git://github.com/jmjuanes/dosql.git"},
