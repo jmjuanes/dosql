@@ -82,7 +82,7 @@ For **insert** data, you must add a `values` key. It can be an object with the v
 // INSERT INTO yourtable (k1, k2, k3) VALUES ("v1", "v2", "v3");
 db.Do({in: 'yourtable', do: 'insert', values: {k1:'v1',k2:'v2',k3:'v3'}}, function(result){
 
-  //result will be NULL if something went wrong. Else, result will be an array with the inserted rows.
+  //result will be NULL if something went wrong. Else, result will be an empty array.
 
 });
 ```
@@ -94,7 +94,7 @@ db.Do({in: 'yourtable', do: 'insert', values: {k1:'v1',k2:'v2',k3:'v3'}}, functi
 var val = [{k1: 'v1', k2: 'v2', k3: 'v3'},{k1: 'v4', k2: 'v5', k3: 'v6'}];
 db.Do({in: 'yourtable', do: 'insert', values:val}, function(result){
 
-  //result will be NULL if something went wrong. Else, result will be an array with the inserted rows.
+  //result will be NULL if something went wrong. Else, result will be an empty array.
 
 });
 ```
