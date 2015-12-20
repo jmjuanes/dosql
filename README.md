@@ -35,7 +35,7 @@ Run a query defined by `obj` object, and then call your `callback` function with
 The `obj` object must contain the next keys:
 
 - `in`: string with the table where you want to do the query.
-- `do`: action
+- `do`: action for do. It can be `select`, `insert`, `delete` or `update`.
 
 `callback` will get only argument, called `result`:
 
@@ -74,7 +74,7 @@ db.Do({in: 'yourtable', do: 'select', where: {'key1': 'value1', 'key2': 'value2'
 });
 ```
 
-For **insert** data, you must add a `values` key. It can be an object with the values for insert into your table, or an array with some objects.
+For **insert** data, you must add a `values` key. It can be an object with the values for insert into your table, or an array with some objects. If no error occurred, the `result` variable will be an array with the inserted rows.
 
 ```javascript
 //Example 1 - Insert only one row to your table
@@ -82,7 +82,7 @@ For **insert** data, you must add a `values` key. It can be an object with the v
 // INSERT INTO yourtable (k1, k2, k3) VALUES ("v1", "v2", "v3");
 db.Do({in: 'yourtable', do: 'insert', values: {k1:'v1',k2:'v2',k3:'v3'}}, function(result){
 
-  //result will be NULL if something went wrong. Else, result will be an empty array
+  //result will be NULL if something went wrong. Else, result will be an array with the inserted rows.
 
 });
 ```
@@ -94,7 +94,7 @@ db.Do({in: 'yourtable', do: 'insert', values: {k1:'v1',k2:'v2',k3:'v3'}}, functi
 var val = [{k1: 'v1', k2: 'v2', k3: 'v3'},{k1: 'v4', k2: 'v5', k3: 'v6'}];
 db.Do({in: 'yourtable', do: 'insert', values:val}, function(result){
 
-  //result will be NULL if something went wrong. Else, result will be an empty array
+  //result will be NULL if something went wrong. Else, result will be an array with the inserted rows.
 
 });
 ```
