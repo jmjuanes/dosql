@@ -123,7 +123,46 @@ exports.Do = function(obj, callback)
     }
 
     //Make the query
-    mydb.Insert(table, obj.values, function(err){ CheckCallback(err, 'insert', [], callback); });
+    mydb.Insert(table, obj.values, function(err){
+
+      //Check the insert type
+    	if(Array.isArray(obj.values) === false) { obj.values = [obj.values]; }
+
+      //Check for error
+      if(err)
+      {
+        //Check the callback
+        CheckCallback(err, 'insert', [], callback);
+      }
+      else
+      {
+        //Get the number of afected rows
+        var count = obj.values.length;
+
+        //Output array
+        var out = [];
+
+        //Get the full content for each one
+        obj.values.forEach(function(item){
+
+          //Get the content
+          mydb.Select(table, item, function(error, results){
+
+            //Insert into the out array
+            out.push(results[0]);
+
+            //Remove one
+            count = count - 1;
+
+            //Check for do the callback
+            if(count == 0){ callback(out); }
+
+          });
+
+        });
+      }
+
+    });
   }
   else if(obj.do === 'update')
   {
